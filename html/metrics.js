@@ -171,14 +171,14 @@ define(["dojo/_base/kernel","dojo/_base/lang", "dojo/_base/sniff", "dojo/ready",
 	ready(function(){
 		// getScrollbar metrics node
 		try{
-			var n=Window.doc.createElement("div");
-			n.style.cssText = "top:0;left:0;width:100px;height:100px;overflow:scroll;position:absolute;visibility:hidden;";
+			this.n=Window.doc.createElement("div");
+			this.n.style.cssText = "top:0;left:0;width:100px;height:100px;overflow:scroll;position:absolute;visibility:hidden;";
 			Window.body().appendChild(n);
-			scroll.w = n.offsetWidth - n.clientWidth;
-			scroll.h = n.offsetHeight - n.clientHeight;
+			scroll.w = this.n.offsetWidth - this.n.clientWidth;
+			scroll.h = this.n.offsetHeight - this.n.clientHeight;
 			Window.body().removeChild(n);
 			//console.log("Scroll bar dimensions: ", scroll);
-			delete n;
+			delete this.n;
 		}catch(e){}
 
 		// text size poll setup
